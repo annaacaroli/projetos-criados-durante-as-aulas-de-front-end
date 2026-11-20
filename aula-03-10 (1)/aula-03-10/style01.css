@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: crimson;
+    color: bisque;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Organização da página */
+.layout-pagina {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    grid-area: header;
+    background-color: rgb(248, 152, 7);
+    color: black;
+    padding: 25px;
+    text-align: center;   
+}
+
+.cabecalho h1 {
+    margin: 0 0 10px;
+}
+
+.cabecalho p {
+    margin: 0;
+}
+
+/* Menu lateral */
+.barra-lateral {
+    grid-area: sidebar;
+    background-color: rgb(34, 135, 139);
+    padding: 20px;
+}
+
+.barra-lateral h2 {
+    color: black;
+}
+
+.barra-lateral ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.barra-lateral li {
+    margin-bottom: 10px;
+}
+
+.barra-lateral a {
+    display: block;
+    background-color: aquamarine;
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.barra-lateral a:hover {
+    background-color: brown;
+}
+
+/* Conteúdo principal */
+.conteudo-principal {
+    grid-area: main;
+    padding: 30px;
+}
+
+/* Correção: O grid-principal é que deve ter o grid, não o h2 */
+.grid-principal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Cards */
+.card {
+    background-color: cornflowerblue;
+    padding: 20px; /* Adicionada a unidade px */
+    border: 1px solid plum;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px coral;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: blue;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+.card a {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    color: rgb(3, 68, 73);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.card a:hover {
+    background-color: orchid;
+}
+
+/* Rodapé */
+footer {
+    grid-area: footer;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}

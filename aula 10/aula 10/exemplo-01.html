@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 12 - Jogo Adivinhação</title>
+</head>
+<body>
+  <h2>Jogo de Adivinhação (0 a 100)</h2>
+  <form>
+    Seu palpite: <input type="number" id="palpite"><br><br>
+    <input type="button" id="btnChutar" value="Chutar">
+  </form>
+  <br>
+  <p id="mensagem"></p>
+  <p id="tentativas"></p>
+
+  <script>
+    let numeroSorteado = Math.round(Math.random() * 100);
+    let totalTentativas = 0;
+
+    document.getElementById("btnChutar").addEventListener("click", function() {
+      let chute = parseInt(document.getElementById("palpite").value);
+      totalTentativas++;
+
+      if (chute < numeroSorteado) {
+        document.getElementById("mensagem").textContent = "O número sorteado é MAIOR.";
+      } else if (chute > numeroSorteado) {
+        document.getElementById("mensagem").textContent = "O número sorteado é MENOR.";
+      } else {
+        document.getElementById("mensagem").textContent = `Parabéns! Acertou o número ${numeroSorteado}!`;
+        document.getElementById("tentativas").textContent = `Tentativas necessárias: ${totalTentativas}`;
+        
+        setTimeout(function() {
+          if (confirm("Quer jogar novamente?")) {
+            numeroSorteado = Math.round(Math.random() * 100);
+            totalTentativas = 0;
+            document.getElementById("mensagem").textContent = "";
+            document.getElementById("tentativas").textContent = "";
+            document.getElementById("palpite").value = "";
+          }
+        }, 100);
+      }
+    });
+  </script>
+</body>
+</html>
